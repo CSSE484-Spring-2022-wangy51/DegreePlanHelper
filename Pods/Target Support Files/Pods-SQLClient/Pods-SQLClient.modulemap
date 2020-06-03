@@ -1,0 +1,6 @@
+framework module Pods_SQLClient {
+  umbrella header "Pods-SQLClient-umbrella.h"
+
+  export *
+  module * { export * }
+}
