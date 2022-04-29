@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="POKEMON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AW-Vh-5X9">
-                                <rect key="frame" x="119" y="438" width="177" height="21"/>
+                                <rect key="frame" x="424" y="673" width="177" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,8 +27,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
-                            <constraint firstItem="8AW-Vh-5X9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nNQ-sG-TgL"/>
-                            <constraint firstItem="8AW-Vh-5X9" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="wVh-bw-ZWg"/>
+                            <constraint firstItem="8AW-Vh-5X9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9a5-yH-vaC"/>
+                            <constraint firstItem="8AW-Vh-5X9" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Cfo-zC-YeF"/>
                         </constraints>
                     </view>
                 </viewController>
