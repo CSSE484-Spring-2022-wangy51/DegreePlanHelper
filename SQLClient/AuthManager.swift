@@ -9,37 +9,37 @@
 import Foundation
 
 class AuthManager{
-    static let shared = AuthManager()
-    private init(){
-        
-    }
-    var currentUser: User? {
-        Auth.auth().currentUser
-    }
-    
-    var isSignedIn: Bool{
-      currentUser != nil
-    }
-    
-    func addLoginObserver(callback:@escaping (()->Void))->AuthStateDidChangeListenerHandle{
-        return Auth.auth().addStateDidChangeListener{ auth, user in
-            if(user != nil){
-                callback()
-            }
-        }
-    }
-    
-    func addLogoutObserver(callback:@escaping (()->Void))->AuthStateDidChangeListenerHandle{
-        return Auth.auth().addStateDidChangeListener{ auth, user in
-            if(user == nil){
-                callback()
-            }
-        }
-    }
-    
-    func removeObserver(_ authDidChangeHandle: AuthStateDidChangeListenerHandle?){
-        if let authHandle = authDidChangeHandle{
-            Auth.auth().removeStateDidChangeListener(authHandle)
-        }
-    }
+//    static let shared = AuthManager()
+//    private init(){
+//        
+//    }
+//    var currentUser: User? {
+//        Auth.auth().currentUser
+//    }
+//    
+//    var isSignedIn: Bool{
+//      currentUser != nil
+//    }
+//    
+//    func addLoginObserver(callback:@escaping (()->Void))->AuthStateDidChangeListenerHandle{
+//        return Auth.auth().addStateDidChangeListener{ auth, user in
+//            if(user != nil){
+//                callback()
+//            }
+//        }
+//    }
+//    
+//    func addLogoutObserver(callback:@escaping (()->Void))->AuthStateDidChangeListenerHandle{
+//        return Auth.auth().addStateDidChangeListener{ auth, user in
+//            if(user == nil){
+//                callback()
+//            }
+//        }
+//    }
+//    
+//    func removeObserver(_ authDidChangeHandle: AuthStateDidChangeListenerHandle?){
+//        if let authHandle = authDidChangeHandle{
+//            Auth.auth().removeStateDidChangeListener(authHandle)
+//        }
+//    }
 }
