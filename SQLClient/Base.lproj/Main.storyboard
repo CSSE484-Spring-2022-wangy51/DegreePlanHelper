@@ -209,7 +209,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="hA6-a5-zHu" kind="show" identifier="" trigger="accessoryAction" id="5fd-Dw-JJu"/>
+                                    <segue destination="hA6-a5-zHu" kind="show" id="QCx-NZ-AkL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -261,7 +261,7 @@
         <!--Course Detail View Controller-->
         <scene sceneID="IlJ-pz-fQb">
             <objects>
-                <viewController id="hA6-a5-zHu" customClass="CourseDetailViewController" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hA6-a5-zHu" customClass="CourseDetailViewController" customModule="SQLClient" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IdH-nP-s9o">
                         <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
