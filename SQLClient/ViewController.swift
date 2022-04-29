@@ -28,7 +28,7 @@ class ViewController: UIViewController {
                            }
                        }
                    }
-                      print("connected, origin 2")
+                      print("connected, origin ?")
                    client.disconnect()
                })
            }
