@@ -29,6 +29,7 @@ class ViewController: UIViewController {
                        }
                    }
                       print("connected, origin ???")
+                      print("Qijun")
                    client.disconnect()
                })
            }
