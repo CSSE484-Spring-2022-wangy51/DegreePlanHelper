@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import Pods_SQLClient
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Did run")
         //Adding the observer for error and to receive the message
         NotificationCenter.default.addObserver(self, selector: #selector(error(_:)), name: NSNotification.Name.SQLClientError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(message(_:)), name: NSNotification.Name.SQLClientMessage, object: nil)
         
         let client = SQLClient.sharedInstance()!
-                  client.connect("ServerNameOrIP", username: "cool", password: "cool", database: "database") { success in
-                  client.execute("SELECT * FROM table", completion: { (_ results: ([Any]?)) in
+                  client.connect("titan.csse.rose-hulman.edu", username: "", password: "", database: "") { success in
+                  client.execute("SELECT * FROM Products", completion: { (_ results: ([Any]?)) in
                    for table in results as! [[[String:AnyObject]]] {
                        for row in table {
                            for (columnName, value) in row {
@@ -27,10 +28,12 @@ class ViewController: UIViewController {
                            }
                        }
                    }
+                      print("connected")
                    client.disconnect()
                })
            }
           }
+    
   
     @objc func error(_ notification: Notification?) {
      let code = notification?.userInfo?[SQLClientCodeKey] as? NSNumber
@@ -45,5 +48,6 @@ class ViewController: UIViewController {
         let message = notification?.userInfo?[SQLClientMessageKey] as? String
         print("Message: \(message ?? "")")
     }
+    
 }
 
