@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		085358CC281B8C7300ACB77D /* PlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085358CB281B8C7300ACB77D /* PlanTableViewController.swift */; };
+		085358CE281B8CD700ACB77D /* PlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085358CD281B8CD700ACB77D /* PlansTableViewController.swift */; };
 		327F63E82488238B00A635A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F63E72488238B00A635A6 /* AppDelegate.swift */; };
 		327F63EA2488238B00A635A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F63E92488238B00A635A6 /* SceneDelegate.swift */; };
 		327F63EC2488238B00A635A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F63EB2488238B00A635A6 /* ViewController.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		085358CB281B8C7300ACB77D /* PlanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewController.swift; sourceTree = "<group>"; };
+		085358CD281B8CD700ACB77D /* PlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansTableViewController.swift; sourceTree = "<group>"; };
 		08A01B471873A0FB30273CC2 /* Pods-SQLClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLClient.debug.xcconfig"; path = "Target Support Files/Pods-SQLClient/Pods-SQLClient.debug.xcconfig"; sourceTree = "<group>"; };
 		2E6E1F54212C000B41A9FBA8 /* Pods-SQLClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLClient.release.xcconfig"; path = "Target Support Files/Pods-SQLClient/Pods-SQLClient.release.xcconfig"; sourceTree = "<group>"; };
 		327F63E42488238B00A635A6 /* SQLClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +73,7 @@
 				327F63F02488238D00A635A6 /* Assets.xcassets */,
 				327F63F22488238D00A635A6 /* LaunchScreen.storyboard */,
 				327F63F52488238D00A635A6 /* Info.plist */,
-				085358CB281B8C7300ACB77D /* PlanTableViewController.swift */,
+				085358CD281B8CD700ACB77D /* PlansTableViewController.swift */,
 			);
 			path = SQLClient;
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 			files = (
 				327F63EC2488238B00A635A6 /* ViewController.swift in Sources */,
 				327F63E82488238B00A635A6 /* AppDelegate.swift in Sources */,
-				085358CC281B8C7300ACB77D /* PlanTableViewController.swift in Sources */,
+				085358CE281B8CD700ACB77D /* PlansTableViewController.swift in Sources */,
 				327F63EA2488238B00A635A6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
