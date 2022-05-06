@@ -9,37 +9,24 @@
 import Foundation
 
 class AuthManager{
-//    static let shared = AuthManager()
-//    private init(){
-//        
-//    }
-//    var currentUser: User? {
-//        Auth.auth().currentUser
-//    }
-//    
-//    var isSignedIn: Bool{
-//      currentUser != nil
-//    }
-//    
-//    func addLoginObserver(callback:@escaping (()->Void))->AuthStateDidChangeListenerHandle{
-//        return Auth.auth().addStateDidChangeListener{ auth, user in
-//            if(user != nil){
-//                callback()
-//            }
-//        }
-//    }
-//    
-//    func addLogoutObserver(callback:@escaping (()->Void))->AuthStateDidChangeListenerHandle{
-//        return Auth.auth().addStateDidChangeListener{ auth, user in
-//            if(user == nil){
-//                callback()
-//            }
-//        }
-//    }
-//    
-//    func removeObserver(_ authDidChangeHandle: AuthStateDidChangeListenerHandle?){
-//        if let authHandle = authDidChangeHandle{
-//            Auth.auth().removeStateDidChangeListener(authHandle)
-//        }
-//    }
+    static let shared = AuthManager()
+    private init(){
+        
+    }
+    var currentUser: String?
+    
+    var isSignedIn: Bool{
+      currentUser != nil
+    }
+    
+    func registerNewUser(email: String, password: String){
+        //TODO: insert new record to users table
+    }
+    
+    func loginExistingUser(email: String, password: String){
+        //TODO: search for this tuple, if exist return the useremail as current user id, else return "No user"
+        //TODO: set var current user to the return, id or nil
+    }
+    
+    
 }
