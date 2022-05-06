@@ -18,11 +18,11 @@ class LoginViewController: UIViewController{
 //    var rosefireName: String?
 //    var loginHandle: AuthStateDidChangeListenerHandle?
 //
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 //        emailTextField.placeholder = "Email"
 //        passwordTextField.placeholder = "Password"
-//    }
+    }
 //
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
@@ -38,8 +38,9 @@ class LoginViewController: UIViewController{
 //
 //    @IBAction func pressCreateUser(_ sender: Any) {
 //    }
-//    @IBAction func pressLogIn(_ sender: Any) {
-//    }
+    @IBAction func pressLogIn(_ sender: Any) {
+        
+    }
 //    @IBAction func pressRoseLogin(_ sender: Any) {
 //    }
 }
