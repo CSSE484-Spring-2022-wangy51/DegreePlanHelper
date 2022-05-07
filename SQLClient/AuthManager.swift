@@ -13,20 +13,22 @@ class AuthManager{
     private init(){
         
     }
-    var currentUser: String?
+    var currentUser: User?
     
-    var isSignedIn: Bool{
-      currentUser != nil
+    var isSignedIn: Bool = false
+    
+    func registerNewUser(email: String, password: String) -> Bool{//return true if signed in
+        //TODO: insert new record to users table, return 1 if success executed
+        return true
     }
     
-    func registerNewUser(email: String, password: String){
-        //TODO: insert new record to users table
-    }
-    
-    func loginExistingUser(email: String, password: String){
+    func loginExistingUser(email: String, password: String) -> Bool{// return true if logged in
         //TODO: search for this tuple, if exist return the useremail as current user id, else return "No user"
-        //TODO: set var current user to the return, id or nil
+        //TODO: set var current user to the return id or nil
+        return true
     }
+    
+    
     
     
 }

@@ -10,8 +10,6 @@ import Foundation
 
 let kRosefireRegToken = "a25e350e-7899-47ae-9de5-e8dc09571e18"
 
-let kShowPlanTableViewSegue = "showPlanTableViewSegue"
-let kShowPlanDetailTableViewSegue = "showPlanDetailTableViewSegue"
-let kShowCourseDetailViewSegue = "showCourseDetailViewSegue"
+let kShowPlanTableView = "showPlanTableView"
 
 let kPlanCell = "planCell"
