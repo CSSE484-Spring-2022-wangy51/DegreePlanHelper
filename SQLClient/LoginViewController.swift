@@ -24,12 +24,16 @@ class LoginViewController: UIViewController{
 //        passwordTextField.placeholder = "Password"
     }
 //
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 //        loginHandle = AuthManager.shared.addLoginObserver {
 //            self.performSegue(withIdentifier: kShowDetailSegue, sender: self)
 //        }
-//    }
+        AuthManager.shared.loginObserver = {
+            print("log state changed")
+            self.performSegue(withIdentifier: kShowPlanTableView, sender: self)
+        }
+    }
 //
 //    override func viewDidDisappear(_ animated: Bool) {
 //        super.viewDidDisappear(animated)
@@ -40,15 +44,16 @@ class LoginViewController: UIViewController{
 //    }
     @IBAction func pressLogIn(_ sender: Any) {
         
-        let flag = AuthManager.shared.loginExistingUser(email: EmailText.text!, password: PasswordField.text!)
-        if(flag == true){
-            AuthManager.shared.isSignedIn = true
-            print("login successed")
-            performSegue(withIdentifier: kShowPlanTableView, sender: self)
-        }else{
-            AuthManager.shared.isSignedIn = false
-            print("login faild")
-        }
+        let flag = AuthManager.shared.loginExistingUser(UserName: EmailText.text!, password: PasswordField.text!)
+        print("r3: \(AuthManager.shared.r)")
+//        if(flag == true){
+//            AuthManager.shared.isSignedIn = true
+//            print("login successed")
+//            performSegue(withIdentifier: kShowPlanTableView, sender: self)
+//        }else{
+//            AuthManager.shared.isSignedIn = false
+//            print("login faild")
+//        }
         
     }
     @IBAction func pressRoseLogin(_ sender: Any) {
@@ -56,18 +61,18 @@ class LoginViewController: UIViewController{
     }
     
     
-    @IBAction func pressedCreatedNewUser(_ sender: Any) {
-        
-        let flag = AuthManager.shared.registerNewUser(email: EmailText.text!, password: PasswordField.text!)
-        if(flag == true){
-            AuthManager.shared.isSignedIn = true
-            print("create and login successed")
-            performSegue(withIdentifier: kShowPlanTableView, sender: self)
-        }else{
-            AuthManager.shared.isSignedIn = false
-            print("create user faild")
-        }
-    }
+//    @IBAction func pressedCreatedNewUser(_ sender: Any) {
+//        
+//        let flag = AuthManager.shared.registerNewUser(email: EmailText.text!, password: PasswordField.text!)
+//        if(flag == true){
+//            AuthManager.shared.isSignedIn = true
+//            print("create and login successed")
+//            performSegue(withIdentifier: kShowPlanTableView, sender: self)
+//        }else{
+//            AuthManager.shared.isSignedIn = false
+//            print("create user faild")
+//        }
+//    }
     
     
 }

@@ -18,6 +18,9 @@
 		327F63EF2488238B00A635A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327F63ED2488238B00A635A6 /* Main.storyboard */; };
 		327F63F12488238D00A635A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327F63F02488238D00A635A6 /* Assets.xcassets */; };
 		327F63F42488238D00A635A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327F63F22488238D00A635A6 /* LaunchScreen.storyboard */; };
+		3B0F2464283075F700EE01C3 /* UserDocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F2463283075F700EE01C3 /* UserDocumentManager.swift */; };
+		3B0F2466283076D000EE01C3 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F2465283076D000EE01C3 /* ConnectionManager.swift */; };
+		3B0F246828307BDE00EE01C3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F246728307BDE00EE01C3 /* RegisterViewController.swift */; };
 		3B7E56DA281C131A0065F0F0 /* PlanDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E56D9281C131A0065F0F0 /* PlanDetailTableViewController.swift */; };
 		3B7E56DC281C133E0065F0F0 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E56DB281C133E0065F0F0 /* CourseDetailViewController.swift */; };
 		3B879F8328260A41009032E4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B879F8228260A41009032E4 /* User.swift */; };
@@ -41,6 +44,9 @@
 		327F63F32488238D00A635A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		327F63F52488238D00A635A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		327F64202488290000A635A6 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		3B0F2463283075F700EE01C3 /* UserDocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDocumentManager.swift; sourceTree = "<group>"; };
+		3B0F2465283076D000EE01C3 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		3B0F246728307BDE00EE01C3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3B7E56D9281C131A0065F0F0 /* PlanDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailTableViewController.swift; sourceTree = "<group>"; };
 		3B7E56DB281C133E0065F0F0 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		3B879F8228260A41009032E4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 				3B7E56DB281C133E0065F0F0 /* CourseDetailViewController.swift */,
 				085358CD281B8CD700ACB77D /* PlansTableViewController.swift */,
 				3B879F8228260A41009032E4 /* User.swift */,
+				3B0F2463283075F700EE01C3 /* UserDocumentManager.swift */,
+				3B0F2465283076D000EE01C3 /* ConnectionManager.swift */,
+				3B0F246728307BDE00EE01C3 /* RegisterViewController.swift */,
 			);
 			path = SQLClient;
 			sourceTree = "<group>";
@@ -233,12 +242,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7E56DC281C133E0065F0F0 /* CourseDetailViewController.swift in Sources */,
+				3B0F2464283075F700EE01C3 /* UserDocumentManager.swift in Sources */,
+				3B0F2466283076D000EE01C3 /* ConnectionManager.swift in Sources */,
 				327F63EC2488238B00A635A6 /* ViewController.swift in Sources */,
 				17BA9E5F281B8EB60061C758 /* AuthManager.swift in Sources */,
 				327F63E82488238B00A635A6 /* AppDelegate.swift in Sources */,
 				17BA9E63281B90220061C758 /* Constant.swift in Sources */,
 				17BA9E61281B8FF20061C758 /* RoseFire.swift in Sources */,
 				085358CE281B8CD700ACB77D /* PlansTableViewController.swift in Sources */,
+				3B0F246828307BDE00EE01C3 /* RegisterViewController.swift in Sources */,
 				17BA9E5D281B8E770061C758 /* LoginViewController.swift in Sources */,
 				327F63EA2488238B00A635A6 /* SceneDelegate.swift in Sources */,
 				3B7E56DA281C131A0065F0F0 /* PlanDetailTableViewController.swift in Sources */,

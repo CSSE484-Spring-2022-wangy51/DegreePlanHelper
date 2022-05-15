@@ -177,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="1450" y="105"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="X08-cm-sUN">
             <objects>
-                <viewController id="qJ4-9X-jNJ" sceneMemberID="viewController">
+                <viewController id="qJ4-9X-jNJ" customClass="RegisterViewController" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KOw-k2-0SA">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,7 +188,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="FRM-vV-krM">
                                 <rect key="frame" x="150" y="115.5" width="520" height="803"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTQ-Eo-21W">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTQ-Eo-21W">
                                         <rect key="frame" x="0.0" y="0.0" width="520" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
@@ -247,6 +247,9 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Student"/>
+                                                <connections>
+                                                    <action selector="pressedStudent:" destination="qJ4-9X-jNJ" eventType="touchUpInside" id="jC3-wg-wf7"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tM-DD-T0A">
                                                 <rect key="frame" x="306" y="0.0" width="214" height="44"/>
@@ -254,6 +257,9 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Professor"/>
+                                                <connections>
+                                                    <action selector="pressedProfessor:" destination="qJ4-9X-jNJ" eventType="touchUpInside" id="S9b-ce-fA8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -276,6 +282,9 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="pressedRegister:" destination="qJ4-9X-jNJ" eventType="touchUpInside" id="vkc-Nt-Iv6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K6L-05-k2t"/>
@@ -290,6 +299,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T0L-s9-ugd"/>
+                    <connections>
+                        <outlet property="FirstNameTextField" destination="lx1-EE-a7Q" id="qAQ-WP-Zcq"/>
+                        <outlet property="UsernameTextField" destination="8m9-Cp-m74" id="2Pn-fP-f4F"/>
+                        <outlet property="lastNameTextField" destination="eHY-2E-J2a" id="D7A-6G-ewm"/>
+                        <outlet property="passwordTextField" destination="U3t-b2-7OI" id="DJF-yX-b1k"/>
+                        <outlet property="professorButton" destination="2tM-DD-T0A" id="0Uf-XM-yqf"/>
+                        <outlet property="rankLabel" destination="Ugz-dT-Oxe" id="S9D-J9-lRw"/>
+                        <outlet property="rankTextField" destination="tff-l2-Yeq" id="OEb-se-tk9"/>
+                        <outlet property="studentButton" destination="Gqz-Qy-w9Q" id="Eb5-q8-GiU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzv-ls-G7H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,6 +374,14 @@
                                 <connections>
                                     <segue destination="hA6-a5-zHu" kind="show" id="QCx-NZ-AkL"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="54Q-I8-agR">
+                                <rect key="frame" x="0.0" y="88" width="820" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="54Q-I8-agR" id="dvr-7B-BIf">
+                                    <rect key="frame" x="0.0" y="0.0" width="820" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
