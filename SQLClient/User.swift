@@ -8,6 +8,15 @@
 
 import Foundation
 class User{
+    var uid: Int
+    var userName: String?
+    var firstName: String?
+    var lastName: String?
+    var role: String?
+    var rank: String?
     
+    public init(uid: Int){
+        self.uid = uid
+    }
     
 }

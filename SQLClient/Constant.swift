@@ -10,9 +10,10 @@ import Foundation
 
 let kRosefireRegToken = "a25e350e-7899-47ae-9de5-e8dc09571e18"
 
-let kShowPlanTableView = "showPlanTableView"
+let kShowPlanListSegue = "showPlanListSegue"
 
 let kPlanCell = "planCell"
+let kCourseCollectionCell = "courseCollectionCell"
 
 let kUserName = "wangy51"
 let kPassword = "ZjdCtS@2"

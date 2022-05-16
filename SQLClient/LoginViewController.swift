@@ -29,10 +29,10 @@ class LoginViewController: UIViewController{
 //        loginHandle = AuthManager.shared.addLoginObserver {
 //            self.performSegue(withIdentifier: kShowDetailSegue, sender: self)
 //        }
-        AuthManager.shared.loginObserver = {
-            print("log state changed")
-            self.performSegue(withIdentifier: kShowPlanTableView, sender: self)
-        }
+//        AuthManager.shared.loginObserver = {
+//            print("log state changed")
+//            self.performSegue(withIdentifier: kShowPlanTableView, sender: self)
+//        }
     }
 //
 //    override func viewDidDisappear(_ animated: Bool) {
@@ -44,8 +44,8 @@ class LoginViewController: UIViewController{
 //    }
     @IBAction func pressLogIn(_ sender: Any) {
         
-        let flag = AuthManager.shared.loginExistingUser(UserName: EmailText.text!, password: PasswordField.text!)
-        print("r3: \(AuthManager.shared.r)")
+        AuthManager.shared.loginExistingUser(UserName: EmailText.text!, password: PasswordField.text!)
+        self.dismiss(animated: true)
 //        if(flag == true){
 //            AuthManager.shared.isSignedIn = true
 //            print("login successed")

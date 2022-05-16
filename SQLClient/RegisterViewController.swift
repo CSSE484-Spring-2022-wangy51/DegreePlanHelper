@@ -37,6 +37,7 @@ class RegisterViewController: UIViewController {
     
     @IBAction func pressedRegister(_ sender: Any) {
         AuthManager.shared.registerNewUser(role: role!, firstName: FirstNameTextField.text!, lastName: lastNameTextField.text!, userName: UsernameTextField.text!, password: passwordTextField.text!, rank: rankTextField.text ?? "")
+        self.dismiss(animated: true)
     }
     
     @IBAction func pressedStudent(_ sender: Any) {

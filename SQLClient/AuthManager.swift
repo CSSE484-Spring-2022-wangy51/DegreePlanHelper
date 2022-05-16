@@ -17,24 +17,20 @@ class AuthManager{
     var currentUser: User?
     
     var isSignedIn: Bool = false
-    var r: Int?
     
     var loginObserver: (()->Void)?
     
     
-    func registerNewUser(role: String, firstName: String, lastName: String, userName: String, password: String, rank:String) -> Bool{//return true if signed in
-        //TODO: insert new record to users table, return 1 if success executed
-        
+    func registerNewUser(role: String, firstName: String, lastName: String, userName: String, password: String, rank:String){//return true if signed in
+        //TODO: return 0 for error
         let client = SQLClient.sharedInstance()!
         var loginQuery = ""
         if(role == "s"){
             loginQuery = "Declare @newID int EXECUTE [insertNewUser] '\(role)', '\(firstName)', '\(lastName)','\(userName)', '\(password)', null, @newID OUTPUT Select @newID"
         }else if(role == "p"){
             loginQuery = "Declare @newID int EXECUTE [insertNewUser] @Role = '\(role)', @FName = '\(firstName)', @LName = '\(lastName)', @UserName = '\(userName)', @UserPassword = '\(password)', @Rank = 'test', @UserID = @newID OUTPUT Select @newID"
-        }else{
-            return false
         }
-        print("LoginQuery = \(loginQuery)")
+//        print("LoginQuery = \(loginQuery)")
         client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
             client.execute(loginQuery, completion: { (_ results: ([Any]?)) in
                 
@@ -42,6 +38,13 @@ class AuthManager{
                     for row in table {
                         for (columnName, value) in row {
                             print("\(columnName) = \(value)")
+                            let uid = value as! Int
+                            if(uid != -1){
+                                self.currentUser = User(uid: uid)
+                                self.loginObserver!()
+                            }else{
+                                print("error register")
+                            }
                         }
                     }
                 }
@@ -50,28 +53,27 @@ class AuthManager{
             })
         }
         
-        return true
+       
     }
     
-    func loginExistingUser(UserName: String, password: String) -> Bool{// return true if logged in
-        //TODO: search for this tuple, if exist return the useremail as current user id, else return "No user"
-        //TODO: set var current user to the return id or nil
+    func loginExistingUser(UserName: String, password: String){// return true if logged in
+       //TODO: return uid
         
         var loginQuery = ""
-        loginQuery = "Declare @Validity int EXECUTE [CheckUser] @UserName = '\(UserName)', @Password = '\(password)',@Valid = @Validity OUTPUT Select @Validity"
+        loginQuery = "DECLARE @output int EXEC [CheckUser] '\(UserName)','\(password)', @output OUTPUT SELECT @output"
         
         let client = SQLClient.sharedInstance()!
         client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
             client.execute(loginQuery, completion: { (_ results: ([Any]?)) in
-                
+               
                 for table in results as! [[[String:AnyObject]]] {
                     for row in table {
                         for (columnName, value) in row {
                             print("\(columnName) = \(value)")
-                            self.r = value as! Int
-                            print("r1: \(self.r)")
-                            if(self.r == 1){
+                            let r = value as! Int
+                            if(r != -1){
                                 self.loginObserver!()
+                                self.currentUser = User(uid: r)
                             }else{
                                 print("error login")
                             }
@@ -83,9 +85,7 @@ class AuthManager{
                 client.disconnect()
             })
         }
-        print("r2: \(self.r)")
-        
-        return true
+       
     }
     
     
