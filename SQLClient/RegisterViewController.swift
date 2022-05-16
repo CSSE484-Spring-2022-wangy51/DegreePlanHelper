@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var studentButton: UIButton!
     @IBOutlet weak var professorButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var rankTextField: UITextField!
@@ -32,6 +33,7 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.rankLabel.isHidden = true
         self.rankTextField.isHidden = true
+        self.registerButton.isHidden = true
         self.color = self.professorButton.backgroundColor
     }
     
@@ -47,6 +49,7 @@ class RegisterViewController: UIViewController {
         self.rankLabel.isHidden = true
         self.rankTextField.isHidden = true
         self.role = "s"
+        self.registerButton.isHidden = false
     }
     
     @IBAction func pressedProfessor(_ sender: Any) {
@@ -56,6 +59,7 @@ class RegisterViewController: UIViewController {
         self.rankLabel.isHidden = false
         self.rankTextField.isHidden = false
         self.role = "p"
+        self.registerButton.isHidden = false
     }
     
     

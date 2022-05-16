@@ -30,6 +30,7 @@ class PlanDetailCollectionViewController: UICollectionViewController, UICollecti
         // Do any additional setup after loading the view.
     }
 
+    
     /*
     // MARK: - Navigation
 
@@ -109,16 +110,4 @@ class PlanDetailCollectionViewController: UICollectionViewController, UICollecti
     */
 
 }
-//extension PlansTableViewController: UICollectionViewDelegateFlowLayout {
-//
-//    // Distance Between Item Cells
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 200
-//    }
-//
-//    // Cell Margin
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 160, left: 160, bottom: 160, right: 160)
-//    }
-//
-//}
+

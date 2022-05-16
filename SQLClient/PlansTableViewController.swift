@@ -11,6 +11,9 @@ import Pods_SQLClient
 
 class PlansTableViewController: UITableViewController {
 
+    var plans = [Plan]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,7 +40,9 @@ class PlansTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getData()
         tableView.reloadData()
+       
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -47,7 +52,8 @@ class PlansTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+       
+        return self.plans.count
     }
 
 
@@ -57,7 +63,7 @@ class PlansTableViewController: UITableViewController {
 
         // Configure the cell...
 
-        cell.textLabel!.text = "Plan name"
+        cell.textLabel!.text = self.plans[indexPath.row].pName
 
         return cell
     }
@@ -97,7 +103,39 @@ class PlansTableViewController: UITableViewController {
         return true
     }
     */
-
+    func getData(){
+        var query = ""
+        query = "SELECT [Plan].Name AS PlanName, PlanID FROM Person JOIN Student ON Student.StudentID = Person.PersonID JOIN [Plan] ON [Plan].StudentID = Student.StudentID WHERE Person.PersonID = \(AuthManager.shared.currentUser!.uid)"
+        print("query: \(query)")
+        
+        let client = SQLClient.sharedInstance()!
+        client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
+            client.execute(query, completion: { (_ results: ([Any]?)) in
+               
+                for table in results as! [[[String:AnyObject]]] {
+                    for row in table {
+                        var pName = ""
+                        var pid = 0
+                        for (columnName, value) in row {
+                            print("Plan: \(columnName) = \(value)")
+                            if(columnName == "PlanName"){
+                                pName = value as! String
+                            }else{
+                                pid = value as! Int
+                            }
+                            
+                        }
+                        print("pid:\(pid), name:\(pName)")
+                        let p = Plan(pid: pid, pName: pName)
+                        self.plans.append(p)
+                        self.tableView.reloadData()
+                    }
+                }
+                
+                client.disconnect()
+            })
+        }
+    }
     
     // MARK: - Navigation
 
