@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,10 @@
 		327F63F42488238D00A635A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327F63F22488238D00A635A6 /* LaunchScreen.storyboard */; };
 		3B06260E2831B89900951969 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06260D2831B89900951969 /* WelcomeViewController.swift */; };
 		3B0626102831C35000951969 /* PlanDetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06260F2831C35000951969 /* PlanDetailCollectionViewController.swift */; };
+		3B0CF05228328092009C2A37 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 3B0CF05128328092009C2A37 /* SideMenu */; };
+		3B0CF05428328468009C2A37 /* PlanListSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CF05328328468009C2A37 /* PlanListSideMenuViewController.swift */; };
+		3B0CF0562832888F009C2A37 /* PlanListCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CF0552832888F009C2A37 /* PlanListCollectionManager.swift */; };
+		3B0CF0582832BCF4009C2A37 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CF0572832BCF4009C2A37 /* ProfileViewController.swift */; };
 		3B0F2464283075F700EE01C3 /* UserDocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F2463283075F700EE01C3 /* UserDocumentManager.swift */; };
 		3B0F2466283076D000EE01C3 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F2465283076D000EE01C3 /* ConnectionManager.swift */; };
 		3B0F246828307BDE00EE01C3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F246728307BDE00EE01C3 /* RegisterViewController.swift */; };
@@ -27,6 +31,11 @@
 		3B7E56DA281C131A0065F0F0 /* PlanDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E56D9281C131A0065F0F0 /* PlanDetailTableViewController.swift */; };
 		3B7E56DC281C133E0065F0F0 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E56DB281C133E0065F0F0 /* CourseDetailViewController.swift */; };
 		3B879F8328260A41009032E4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B879F8228260A41009032E4 /* User.swift */; };
+		3BE982FB283316C00074CC49 /* PlanDetailSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE982FA283316C00074CC49 /* PlanDetailSideMenuViewController.swift */; };
+		3BE982FD28331D160074CC49 /* PlanDetailDocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE982FC28331D160074CC49 /* PlanDetailDocumentManager.swift */; };
+		3BE98304283322B00074CC49 /* TagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE98303283322B00074CC49 /* TagManager.swift */; };
+		3BE983062833242A0074CC49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BE983052833242A0074CC49 /* GoogleService-Info.plist */; };
+		3BE983082833247D0074CC49 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE983072833247D0074CC49 /* Tag.swift */; };
 		BFB699F18B4B83E6EBF1A5B5 /* Pods_SQLClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946740D0A809161E165A4931 /* Pods_SQLClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +58,9 @@
 		327F64202488290000A635A6 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		3B06260D2831B89900951969 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3B06260F2831C35000951969 /* PlanDetailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailCollectionViewController.swift; sourceTree = "<group>"; };
+		3B0CF05328328468009C2A37 /* PlanListSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanListSideMenuViewController.swift; sourceTree = "<group>"; };
+		3B0CF0552832888F009C2A37 /* PlanListCollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanListCollectionManager.swift; sourceTree = "<group>"; };
+		3B0CF0572832BCF4009C2A37 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3B0F2463283075F700EE01C3 /* UserDocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDocumentManager.swift; sourceTree = "<group>"; };
 		3B0F2465283076D000EE01C3 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		3B0F246728307BDE00EE01C3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +68,11 @@
 		3B7E56D9281C131A0065F0F0 /* PlanDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailTableViewController.swift; sourceTree = "<group>"; };
 		3B7E56DB281C133E0065F0F0 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		3B879F8228260A41009032E4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3BE982FA283316C00074CC49 /* PlanDetailSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailSideMenuViewController.swift; sourceTree = "<group>"; };
+		3BE982FC28331D160074CC49 /* PlanDetailDocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailDocumentManager.swift; sourceTree = "<group>"; };
+		3BE98303283322B00074CC49 /* TagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManager.swift; sourceTree = "<group>"; };
+		3BE983052833242A0074CC49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3BE983072833247D0074CC49 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		946740D0A809161E165A4931 /* Pods_SQLClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQLClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0CF05228328092009C2A37 /* SideMenu in Frameworks */,
 				BFB699F18B4B83E6EBF1A5B5 /* Pods_SQLClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,20 +117,28 @@
 				327F63F02488238D00A635A6 /* Assets.xcassets */,
 				327F63F22488238D00A635A6 /* LaunchScreen.storyboard */,
 				327F63F52488238D00A635A6 /* Info.plist */,
+				3BE983052833242A0074CC49 /* GoogleService-Info.plist */,
 				3B06260D2831B89900951969 /* WelcomeViewController.swift */,
 				17BA9E5C281B8E770061C758 /* LoginViewController.swift */,
 				3B0F246728307BDE00EE01C3 /* RegisterViewController.swift */,
 				17BA9E5E281B8EB60061C758 /* AuthManager.swift */,
-				17BA9E62281B90220061C758 /* Constant.swift */,
-				3B7E56D9281C131A0065F0F0 /* PlanDetailTableViewController.swift */,
-				3B7E56DB281C133E0065F0F0 /* CourseDetailViewController.swift */,
-				085358CD281B8CD700ACB77D /* PlansTableViewController.swift */,
 				3B879F8228260A41009032E4 /* User.swift */,
 				3B0F2463283075F700EE01C3 /* UserDocumentManager.swift */,
-				3B0F2465283076D000EE01C3 /* ConnectionManager.swift */,
-				17BA9E60281B8FF20061C758 /* RoseFire.swift */,
-				3B06260F2831C35000951969 /* PlanDetailCollectionViewController.swift */,
+				3B0CF0572832BCF4009C2A37 /* ProfileViewController.swift */,
+				17BA9E62281B90220061C758 /* Constant.swift */,
 				3B40D4E42831E733009D68E5 /* Plan.swift */,
+				085358CD281B8CD700ACB77D /* PlansTableViewController.swift */,
+				3B0CF0552832888F009C2A37 /* PlanListCollectionManager.swift */,
+				3B0CF05328328468009C2A37 /* PlanListSideMenuViewController.swift */,
+				3B06260F2831C35000951969 /* PlanDetailCollectionViewController.swift */,
+				3BE982FA283316C00074CC49 /* PlanDetailSideMenuViewController.swift */,
+				3BE982FC28331D160074CC49 /* PlanDetailDocumentManager.swift */,
+				3B7E56DB281C133E0065F0F0 /* CourseDetailViewController.swift */,
+				3B0F2465283076D000EE01C3 /* ConnectionManager.swift */,
+				3B7E56D9281C131A0065F0F0 /* PlanDetailTableViewController.swift */,
+				17BA9E60281B8FF20061C758 /* RoseFire.swift */,
+				3BE98303283322B00074CC49 /* TagManager.swift */,
+				3BE983072833247D0074CC49 /* Tag.swift */,
 			);
 			path = SQLClient;
 			sourceTree = "<group>";
@@ -153,6 +179,9 @@
 			dependencies = (
 			);
 			name = SQLClient;
+			packageProductDependencies = (
+				3B0CF05128328092009C2A37 /* SideMenu */,
+			);
 			productName = SQLClient;
 			productReference = 327F63E42488238B00A635A6 /* SQLClient.app */;
 			productType = "com.apple.product-type.application";
@@ -181,6 +210,9 @@
 				Base,
 			);
 			mainGroup = 327F63DB2488238A00A635A6;
+			packageReferences = (
+				3B0CF05028328092009C2A37 /* XCRemoteSwiftPackageReference "SideMenu" */,
+			);
 			productRefGroup = 327F63E52488238B00A635A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE983062833242A0074CC49 /* GoogleService-Info.plist in Resources */,
 				327F63F42488238D00A635A6 /* LaunchScreen.storyboard in Resources */,
 				327F63F12488238D00A635A6 /* Assets.xcassets in Resources */,
 				327F63EF2488238B00A635A6 /* Main.storyboard in Resources */,
@@ -250,9 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE983082833247D0074CC49 /* Tag.swift in Sources */,
 				3B7E56DC281C133E0065F0F0 /* CourseDetailViewController.swift in Sources */,
 				3B0F2464283075F700EE01C3 /* UserDocumentManager.swift in Sources */,
+				3B0CF0582832BCF4009C2A37 /* ProfileViewController.swift in Sources */,
 				3B0F2466283076D000EE01C3 /* ConnectionManager.swift in Sources */,
+				3B0CF05428328468009C2A37 /* PlanListSideMenuViewController.swift in Sources */,
+				3B0CF0562832888F009C2A37 /* PlanListCollectionManager.swift in Sources */,
+				3BE98304283322B00074CC49 /* TagManager.swift in Sources */,
 				327F63EC2488238B00A635A6 /* ViewController.swift in Sources */,
 				3B40D4E52831E733009D68E5 /* Plan.swift in Sources */,
 				17BA9E5F281B8EB60061C758 /* AuthManager.swift in Sources */,
@@ -260,10 +298,12 @@
 				3B06260E2831B89900951969 /* WelcomeViewController.swift in Sources */,
 				17BA9E63281B90220061C758 /* Constant.swift in Sources */,
 				17BA9E61281B8FF20061C758 /* RoseFire.swift in Sources */,
+				3BE982FB283316C00074CC49 /* PlanDetailSideMenuViewController.swift in Sources */,
 				085358CE281B8CD700ACB77D /* PlansTableViewController.swift in Sources */,
 				3B0F246828307BDE00EE01C3 /* RegisterViewController.swift in Sources */,
 				17BA9E5D281B8E770061C758 /* LoginViewController.swift in Sources */,
 				3B0626102831C35000951969 /* PlanDetailCollectionViewController.swift in Sources */,
+				3BE982FD28331D160074CC49 /* PlanDetailDocumentManager.swift in Sources */,
 				327F63EA2488238B00A635A6 /* SceneDelegate.swift in Sources */,
 				3B7E56DA281C131A0065F0F0 /* PlanDetailTableViewController.swift in Sources */,
 				3B879F8328260A41009032E4 /* User.swift in Sources */,
@@ -466,6 +506,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B0CF05028328092009C2A37 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B0CF05128328092009C2A37 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B0CF05028328092009C2A37 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 327F63DC2488238A00A635A6 /* Project object */;
 }

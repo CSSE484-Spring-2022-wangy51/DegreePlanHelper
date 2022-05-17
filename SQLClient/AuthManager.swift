@@ -33,14 +33,14 @@ class AuthManager{
 //        print("LoginQuery = \(loginQuery)")
         client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
             client.execute(loginQuery, completion: { (_ results: ([Any]?)) in
-                
-                for table in results as! [[[String:AnyObject]]] {
+                if let r = results as? [[[String:AnyObject]]] {
+                for table in r {
                     for row in table {
                         for (columnName, value) in row {
                             print("\(columnName) = \(value)")
                             let uid = value as! Int
                             if(uid != -1){
-                                self.currentUser = User(uid: uid)
+                                self.currentUser = User(uid: uid, userName: userName, firstName: firstName, lastName: lastName, role: role, rank: rank)
                                 self.loginObserver!()
                             }else{
                                 print("error register")
@@ -48,6 +48,11 @@ class AuthManager{
                         }
                     }
                 }
+                }else{
+                    print("no return from database")
+                
+                }
+                
                 
                 client.disconnect()
             })
@@ -65,8 +70,8 @@ class AuthManager{
         let client = SQLClient.sharedInstance()!
         client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
             client.execute(loginQuery, completion: { (_ results: ([Any]?)) in
-               
-                for table in results as! [[[String:AnyObject]]] {
+                if let r = results as? [[[String:AnyObject]]] {
+                for table in r {
                     for row in table {
                         for (columnName, value) in row {
                             print("\(columnName) = \(value)")
@@ -81,11 +86,20 @@ class AuthManager{
                         }
                     }
                 }
+                }else{
+                    print("no return from database")
+                
+                }
                 
                 client.disconnect()
             })
         }
        
+    }
+    
+    func logout(){
+        self.currentUser = nil
+        loginObserver!()
     }
     
     

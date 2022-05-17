@@ -19,4 +19,14 @@ class User{
         self.uid = uid
     }
     
+    
+    public init(uid: Int, userName: String, firstName: String, lastName: String, role: String, rank: String){
+        self.uid = uid
+        self.userName = userName
+        self.firstName = firstName
+        self.lastName = lastName
+        self.role = role
+        self.rank = rank
+    }
+    
 }

@@ -8,12 +8,14 @@
 
 import UIKit
 import Pods_SQLClient
+import FirebaseFirestore
 
 class PlansTableViewController: UITableViewController {
-
-    var plans = [Plan]()
     
+    var listenerRegistration: ListenerRegistration?
+    var tagFilter = [String]()
     
+    @IBOutlet weak var currentTags: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +24,12 @@ class PlansTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
 //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action:  #selector(showAddPlanDialog))
-        
+        AuthManager.shared.loginObserver = {
+            self.navigationController?.popViewController(animated: true)
+        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
+                                                                 target: self,
+                                                                 action: #selector(showAddPlanDialog))
         
 
     }
@@ -40,20 +47,76 @@ class PlansTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getData()
-        tableView.reloadData()
+        startListening()
+        PlanListCollectionManager.shared.getData {
+            self.tableView.reloadData()
+        }
        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        tableView.reloadData()
+        stopListening()
+    }
+    
+    func startListening(){
+        stopListening()
+        TagManager.shared.startListening(filterByAuthor: AuthManager.shared.currentUser!.uid, filterByTags: tagFilter){
+            self.tableView.reloadData()
+        }
     }
 
+    func stopListening(){
+        TagManager.shared.stopListening(listenerRegistration)
+    }
+
+    @objc func showAddPlanDialog(){
+//        print("you pressed the add button")
+        
+        let alertController = UIAlertController(title: "Create a new Plan",
+                                                message: "",
+                                                preferredStyle: UIAlertController.Style.alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Plam Name"//the grey word
+        }
+        
+        
+        //create an action and add it to the controller
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { action in
+            print("You pressed cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        //positive button
+        let createAlbumAction = UIAlertAction(title: "Create Plan", style: UIAlertAction.Style.default) { action in
+            print("You pressed create Plan")
+            
+            let planNameTextField = alertController.textFields![0] as UITextField
+            
+            PlanListCollectionManager.shared.add(pName: planNameTextField.text!){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                    print("Async after 2 seconds")
+                    PlanListCollectionManager.shared.getData {
+                        self.tableView.reloadData()
+                    }
+                }
+//                PlanListCollectionManager.shared.getData {
+//                    self.tableView.reloadData()
+//                }
+            }
+            
+          
+        }
+        alertController.addAction(createAlbumAction)
+        
+        present(alertController, animated: true)//to show the thing
+        
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
        
-        return self.plans.count
+        return PlanListCollectionManager.shared.plans.count
     }
 
 
@@ -62,8 +125,7 @@ class PlansTableViewController: UITableViewController {
 
 
         // Configure the cell...
-
-        cell.textLabel!.text = self.plans[indexPath.row].pName
+        cell.textLabel!.text = PlanListCollectionManager.shared.plans[indexPath.row].pName
 
         return cell
     }
@@ -77,17 +139,23 @@ class PlansTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            let pid = PlanListCollectionManager.shared.plans[indexPath.row].pid
+            PlanListCollectionManager.shared.delete(pid: pid){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                    print("Async after 2 seconds")
+                    PlanListCollectionManager.shared.getData {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
         }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -103,39 +171,8 @@ class PlansTableViewController: UITableViewController {
         return true
     }
     */
-    func getData(){
-        var query = ""
-        query = "SELECT [Plan].Name AS PlanName, PlanID FROM Person JOIN Student ON Student.StudentID = Person.PersonID JOIN [Plan] ON [Plan].StudentID = Student.StudentID WHERE Person.PersonID = \(AuthManager.shared.currentUser!.uid)"
-        print("query: \(query)")
-        
-        let client = SQLClient.sharedInstance()!
-        client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
-            client.execute(query, completion: { (_ results: ([Any]?)) in
-               
-                for table in results as! [[[String:AnyObject]]] {
-                    for row in table {
-                        var pName = ""
-                        var pid = 0
-                        for (columnName, value) in row {
-                            print("Plan: \(columnName) = \(value)")
-                            if(columnName == "PlanName"){
-                                pName = value as! String
-                            }else{
-                                pid = value as! Int
-                            }
-                            
-                        }
-                        print("pid:\(pid), name:\(pName)")
-                        let p = Plan(pid: pid, pName: pName)
-                        self.plans.append(p)
-                        self.tableView.reloadData()
-                    }
-                }
-                
-                client.disconnect()
-            })
-        }
-    }
+
+    
     
     // MARK: - Navigation
 
