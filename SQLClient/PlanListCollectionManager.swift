@@ -17,14 +17,14 @@ class PlanListCollectionManager{
         
     }
     var plans = [Plan]()
-    
+    var tagFilter = [String]()
     
     func getData( changeListener: @escaping (() -> Void)){
         self.plans.removeAll()
         var query = ""
         query = "SELECT [Plan].Name AS PlanName, PlanID FROM Person JOIN Student ON Student.StudentID = Person.PersonID JOIN [Plan] ON [Plan].StudentID = Student.StudentID WHERE Person.PersonID = \(AuthManager.shared.currentUser!.uid)"
         print("query: \(query)")
-        
+        print("filter by : \(tagFilter)")
         let client = SQLClient.sharedInstance()!
         client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
             client.execute(query, completion: { (_ results: ([Any]?)) in
@@ -43,16 +43,16 @@ class PlanListCollectionManager{
                             }
                             
                         }
-                        print("pid:\(pid), name:\(pName)")
-                        let p = Plan(pid: pid, pName: pName)
-                        self.plans.append(p)
-                        changeListener()
+//                        print("pid:\(pid), name:\(pName)")
+                            let p = Plan(pid: pid, pName: pName)
+                            self.plans.append(p)
                     }
                 }
             }else{
                 print("no return from database")
             }
                 
+                changeListener()
                 client.disconnect()
             })
         }

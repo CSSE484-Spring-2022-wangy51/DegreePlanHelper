@@ -31,7 +31,7 @@
             <objects>
                 <viewController id="TXT-TK-5lQ" customClass="LoginViewController" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2U-Ff-ReK">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="WoS-Uk-KjL">
@@ -185,7 +185,7 @@
             <objects>
                 <viewController id="qJ4-9X-jNJ" customClass="RegisterViewController" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KOw-k2-0SA">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="FRM-vV-krM">
@@ -433,7 +433,7 @@
             <objects>
                 <viewController id="Z6f-I8-VeQ" customClass="PlanListSideMenuViewController" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cuC-jh-r3h">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDc-Og-lgt">
@@ -444,7 +444,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Uln-Z2-wRh">
-                                <rect key="frame" x="30" y="180" width="182" height="516"/>
+                                <rect key="frame" x="30" y="180" width="212" height="516"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abF-oe-RMI">
                                         <rect key="frame" x="0.0" y="0.0" width="117" height="36"/>
@@ -473,28 +473,25 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title=" Filter by Tag" image="arrow_back_ios_36pt"/>
                                         <connections>
-                                            <action selector="pressedFilterByTags:" destination="Z6f-I8-VeQ" eventType="touchUpInside" id="qtC-MN-2Qv"/>
+                                            <action selector="pressedFilterByTags:" destination="Z6f-I8-VeQ" eventType="touchUpInside" id="IZk-82-ZcV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfj-5V-54R">
+                                        <rect key="frame" x="0.0" y="288" width="212" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="tintColor" red="0.94977147120000005" green="0.93961924740000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title=" Show All Plans" image="arrow_back_ios_36pt"/>
+                                        <connections>
+                                            <action selector="pressedShowAllPlans:" destination="Z6f-I8-VeQ" eventType="touchUpInside" id="7GH-cs-PHf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnf-wY-eY2">
-                                        <rect key="frame" x="0.0" y="288" width="136" height="36"/>
+                                        <rect key="frame" x="0.0" y="384" width="182" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="tintColor" red="0.94977147120000005" green="0.93961924740000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title=" Add Tag" image="arrow_back_ios_36pt"/>
-                                        <connections>
-                                            <action selector="pressedAddTag:" destination="Z6f-I8-VeQ" eventType="touchUpInside" id="mm4-Lp-KZZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="041-9E-1sc">
-                                        <rect key="frame" x="0.0" y="384" width="164" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <color key="tintColor" red="0.94977147120000005" green="0.93961924740000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title=" Delete Tag" image="delete_36pt"/>
-                                        <connections>
-                                            <action selector="pressedDeleteTag:" destination="Z6f-I8-VeQ" eventType="touchUpInside" id="yqz-Dq-qjy"/>
-                                        </connections>
+                                        <state key="normal" title=" Manage Tag" image="arrow_back_ios_36pt"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cb7-Sy-viH">
                                         <rect key="frame" x="0.0" y="480" width="133" height="36"/>
@@ -520,6 +517,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nKs-UX-s4F"/>
+                    <connections>
+                        <segue destination="twC-en-JHZ" kind="presentation" identifier="popTagListSegue" id="WEO-jj-wZ0"/>
+                        <segue destination="twC-en-JHZ" kind="show" identifier="modifyTagSegue" id="OOf-dj-S8r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBq-fC-ege" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -617,17 +618,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="fMp-d9-nOA">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V1G-xt-SWn">
-                            <rect key="frame" x="0.0" y="0.0" width="820" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <color key="backgroundColor" red="0.85320148380000005" green="0.75378249929999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="planCell" id="Tde-TO-d0v">
-                                <rect key="frame" x="0.0" y="88.5" width="820" height="43.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="820" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tde-TO-d0v" id="H9U-gu-aWE">
                                     <rect key="frame" x="0.0" y="0.0" width="791.5" height="43.5"/>
@@ -651,7 +645,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="currentTags" destination="V1G-xt-SWn" id="vXs-26-WIE"/>
                         <segue destination="dEF-Dq-Nbf" kind="show" identifier="showProfleSegue" id="IGv-e6-ERF"/>
                     </connections>
                 </tableViewController>
@@ -747,6 +740,35 @@
             </objects>
             <point key="canvasLocation" x="4637" y="123"/>
         </scene>
+        <!--Tags Table View Controller-->
+        <scene sceneID="cRx-xv-lzd">
+            <objects>
+                <tableViewController id="twC-en-JHZ" customClass="TagsTableViewController" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="yx1-96-2uC">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tagCell" id="dIo-4f-Pkl">
+                                <rect key="frame" x="0.0" y="44.5" width="704" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dIo-4f-Pkl" id="uhC-Xy-Ia7">
+                                    <rect key="frame" x="0.0" y="0.0" width="704" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="twC-en-JHZ" id="XlT-th-wmf"/>
+                            <outlet property="delegate" destination="twC-en-JHZ" id="Wep-em-iL3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="wZK-Rc-MLy"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UwA-xT-YyY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5506" y="-574"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fvc-ds-jj3">
             <objects>
@@ -784,7 +806,7 @@
             <objects>
                 <viewController id="4NT-Gw-twd" customClass="PlanDetailSideMenuViewController" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sDi-fg-oV5">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYD-xS-4dV">
@@ -837,6 +859,9 @@
             <point key="canvasLocation" x="4652.9268292682927" y="864.9152542372882"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OOf-dj-S8r"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="account_box_36pt" width="36" height="36"/>
         <image name="arrow_back_ios_36pt" width="36" height="36"/>

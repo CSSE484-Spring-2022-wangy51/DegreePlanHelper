@@ -13,9 +13,12 @@ let kRosefireRegToken = "a25e350e-7899-47ae-9de5-e8dc09571e18"
 let kShowPlanListSegue = "showPlanListSegue"
 let kShowProfleSegue = "showProfleSegue"
 let kShowCourseDetailSegue = "showCourseDetailSegue"
+let kPopTagListSegue = "popTagListSegue"
+let kModifyTagSegue = "modifyTagSegue"
 
 let kPlanCell = "planCell"
 let kCourseCollectionCell = "courseCollectionCell"
+let kTagCell = "tagCell"
 
 let kUserName = "wangy51"
 let kPassword = "ZjdCtS@2"
@@ -23,6 +26,7 @@ let kDatabase = "DegreePlanHelper"
 
 let kTagCollectionPath = "Tags"
 let kTagAuthID = "authID"
-let kTagPlans = "planNames"
-let kTagName = "tagName"
+let kTagPlan = "planName"
+let kTagName = "name"
+let kTagPlanID = "planID"
 

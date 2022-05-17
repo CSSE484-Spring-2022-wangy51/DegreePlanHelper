@@ -21,15 +21,11 @@ class TagManager{
     
     var latestTags = [Tag]()
     
-    func startListening(filterByAuthor authorFilter: Int, filterByTags: [String], changeListener: @escaping (() -> Void)) -> ListenerRegistration{// recieves a function that takes no parameter and return void
+    func startListening(filterByAuthor authorFilter: Int, changeListener: @escaping (() -> Void)) -> ListenerRegistration{// recieves a function that takes no parameter and return void
         
         var query = _collectionRef.limit(to: 50)
-        
+       print("filter by authID: \(authorFilter)")
         query = query.whereField(kTagAuthID, isEqualTo: AuthManager.shared.currentUser?.uid)
-        if(filterByTags != [String]()){
-            query = query.whereField(kTagName, in: filterByTags)
-        }
-        
         
         return query.addSnapshotListener { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {// if exist then carry on, else stop and print
@@ -55,7 +51,7 @@ class TagManager{
         _collectionRef.addDocument(data: [
             kTagName: t.tagName,
             kTagAuthID: t.authID,
-            kTagPlans: t.planNames,
+            kTagPlan: t.planName,
         ]){err in
             if let err = err {
                 print("Error adding document \(err)")

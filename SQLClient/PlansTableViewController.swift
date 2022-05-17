@@ -12,10 +12,10 @@ import FirebaseFirestore
 
 class PlansTableViewController: UITableViewController {
     
-    var listenerRegistration: ListenerRegistration?
-    var tagFilter = [String]()
+//    var listenerRegistration: ListenerRegistration?
+
     
-    @IBOutlet weak var currentTags: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,28 +47,35 @@ class PlansTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        startListening()
+//        startListening()
         PlanListCollectionManager.shared.getData {
             self.tableView.reloadData()
         }
+        
        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        stopListening()
+        
+//        stopListening()
+        PlanListCollectionManager.shared.tagFilter.removeAll()
+        
     }
     
-    func startListening(){
-        stopListening()
-        TagManager.shared.startListening(filterByAuthor: AuthManager.shared.currentUser!.uid, filterByTags: tagFilter){
-            self.tableView.reloadData()
-        }
-    }
-
-    func stopListening(){
-        TagManager.shared.stopListening(listenerRegistration)
-    }
+//    func startListening(){
+//        stopListening()
+//        TagManager.shared.startListening(filterByAuthor: AuthManager.shared.currentUser!.uid, filterByTags: PlanListCollectionManager.shared.tagFilter){
+//
+//            PlanListCollectionManager.shared.getData {
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
+//
+//    func stopListening(){
+//        TagManager.shared.stopListening(listenerRegistration)
+//    }
 
     @objc func showAddPlanDialog(){
 //        print("you pressed the add button")
@@ -101,9 +108,6 @@ class PlansTableViewController: UITableViewController {
                         self.tableView.reloadData()
                     }
                 }
-//                PlanListCollectionManager.shared.getData {
-//                    self.tableView.reloadData()
-//                }
             }
             
           
@@ -126,7 +130,7 @@ class PlansTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel!.text = PlanListCollectionManager.shared.plans[indexPath.row].pName
-
+        
         return cell
     }
 
@@ -147,7 +151,6 @@ class PlansTableViewController: UITableViewController {
             let pid = PlanListCollectionManager.shared.plans[indexPath.row].pid
             PlanListCollectionManager.shared.delete(pid: pid){
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                    print("Async after 2 seconds")
                     PlanListCollectionManager.shared.getData {
                         self.tableView.reloadData()
                     }
@@ -181,6 +184,7 @@ class PlansTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         print("Prepare to go")
+       
 //        if segue.identifier == kShowPlanDetailTableViewSegue{
 //
 //            print("Go to plan detail")
