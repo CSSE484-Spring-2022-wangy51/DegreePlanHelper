@@ -38,6 +38,8 @@
 		3BE983082833247D0074CC49 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE983072833247D0074CC49 /* Tag.swift */; };
 		3BEB2D4028345C4100E68E4C /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB2D3F28345C4100E68E4C /* TagsTableViewController.swift */; };
 		3BEB2D4228347DD700E68E4C /* TagDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB2D4128347DD700E68E4C /* TagDetailViewController.swift */; };
+		3BEB2D442834AC4900E68E4C /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB2D432834AC4900E68E4C /* AddCourseViewController.swift */; };
+		3BEB2D462834D7A900E68E4C /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB2D452834D7A900E68E4C /* CourseDetail.swift */; };
 		BFB699F18B4B83E6EBF1A5B5 /* Pods_SQLClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946740D0A809161E165A4931 /* Pods_SQLClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,8 @@
 		3BE983072833247D0074CC49 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		3BEB2D3F28345C4100E68E4C /* TagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		3BEB2D4128347DD700E68E4C /* TagDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailViewController.swift; sourceTree = "<group>"; };
+		3BEB2D432834AC4900E68E4C /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
+		3BEB2D452834D7A900E68E4C /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
 		946740D0A809161E165A4931 /* Pods_SQLClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQLClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,7 +141,9 @@
 				3B06260F2831C35000951969 /* PlanDetailCollectionViewController.swift */,
 				3BE982FA283316C00074CC49 /* PlanDetailSideMenuViewController.swift */,
 				3BE982FC28331D160074CC49 /* PlanDetailDocumentManager.swift */,
+				3BEB2D432834AC4900E68E4C /* AddCourseViewController.swift */,
 				3B7E56DB281C133E0065F0F0 /* CourseDetailViewController.swift */,
+				3BEB2D452834D7A900E68E4C /* CourseDetail.swift */,
 				3BE983072833247D0074CC49 /* Tag.swift */,
 				3BE98303283322B00074CC49 /* TagManager.swift */,
 				3BEB2D3F28345C4100E68E4C /* TagsTableViewController.swift */,
@@ -290,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BE983082833247D0074CC49 /* Tag.swift in Sources */,
+				3BEB2D442834AC4900E68E4C /* AddCourseViewController.swift in Sources */,
 				3B7E56DC281C133E0065F0F0 /* CourseDetailViewController.swift in Sources */,
 				3B0F2464283075F700EE01C3 /* UserDocumentManager.swift in Sources */,
 				3B0CF0582832BCF4009C2A37 /* ProfileViewController.swift in Sources */,
@@ -313,6 +320,7 @@
 				3B0626102831C35000951969 /* PlanDetailCollectionViewController.swift in Sources */,
 				3BE982FD28331D160074CC49 /* PlanDetailDocumentManager.swift in Sources */,
 				327F63EA2488238B00A635A6 /* SceneDelegate.swift in Sources */,
+				3BEB2D462834D7A900E68E4C /* CourseDetail.swift in Sources */,
 				3B7E56DA281C131A0065F0F0 /* PlanDetailTableViewController.swift in Sources */,
 				3B879F8328260A41009032E4 /* User.swift in Sources */,
 			);

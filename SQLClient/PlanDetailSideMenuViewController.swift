@@ -25,6 +25,8 @@ class PlanDetailSideMenuViewController: UIViewController {
     
     @IBAction func pressedAddCourse(_ sender: Any) {
         self.dismiss(animated: true)
+        print("pressed add course")
+        tableViewController.performSegue(withIdentifier: kShowAddCourseViewSegue, sender: tableViewController)
         
     }
     

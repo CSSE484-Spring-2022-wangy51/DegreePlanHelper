@@ -196,6 +196,13 @@ class PlansTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         print("Prepare to go")
        
+        if (segue.identifier == kShowPlanDetailSegue){
+            let dvc = segue.destination as! PlanDetailCollectionViewController
+            let indexPath = tableView.indexPathForSelectedRow
+            let pid =  PlanListCollectionManager.shared.plans[indexPath!.row].pid
+            dvc.pID = pid
+
+        }
 //        if segue.identifier == kShowPlanDetailTableViewSegue{
 //
 //            print("Go to plan detail")
