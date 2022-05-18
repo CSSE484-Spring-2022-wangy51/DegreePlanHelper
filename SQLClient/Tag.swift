@@ -13,11 +13,11 @@ import FirebaseFirestore
 class Tag{
     
     var authID: Int
-    var planName: String
+    var planName: [String: Int]
     var tagName: String
     var documentID: String?
     
-    init(authID: Int, planName: String, tagName: String){
+    init(authID: Int, planName: [String: Int], tagName: String){
         self.authID = authID
         self.planName = planName
         self.tagName = tagName
@@ -28,7 +28,7 @@ class Tag{
         let data = documentSnapshot.data()
         self.authID = data?[kTagAuthID] as? Int ?? -1
         self.tagName = data?[kTagName] as? String ?? ""
-        self.planName = data?[kTagPlan] as? String ?? ""
+        self.planName = data?[kTagPlan] as? [String:Int] ?? [:]
     }
     
 }

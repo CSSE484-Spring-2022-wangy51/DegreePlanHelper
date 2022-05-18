@@ -70,4 +70,17 @@ class TagManager{
         
     }
     
+    func update(documentID: String, tagName: String, plans: [String:Int]){
+        _collectionRef.document(documentID).updateData([
+            kTagName: tagName,
+            kTagPlan: plans,
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
 }

@@ -15,6 +15,7 @@ let kShowProfleSegue = "showProfleSegue"
 let kShowCourseDetailSegue = "showCourseDetailSegue"
 let kPopTagListSegue = "popTagListSegue"
 let kModifyTagSegue = "modifyTagSegue"
+let kShowTagContentSegue = "showTagContentSegue"
 
 let kPlanCell = "planCell"
 let kCourseCollectionCell = "courseCollectionCell"

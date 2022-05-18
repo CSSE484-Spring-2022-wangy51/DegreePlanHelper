@@ -30,7 +30,17 @@ class PlansTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                                                  target: self,
                                                                  action: #selector(showAddPlanDialog))
+        NotificationCenter.default.addObserver(self, selector: #selector(doThisWhenNotify(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+
+       
         
+
+    }
+    @objc func doThisWhenNotify(notification : NSNotification) {
+        
+        //update tableview
+        print("din")
+        self.tableView.reloadData()
 
     }
 
@@ -176,6 +186,7 @@ class PlansTableViewController: UITableViewController {
     */
 
     
+ 
     
     // MARK: - Navigation
 

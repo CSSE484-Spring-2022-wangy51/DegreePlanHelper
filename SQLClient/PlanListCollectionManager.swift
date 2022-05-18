@@ -18,6 +18,7 @@ class PlanListCollectionManager{
     }
     var plans = [Plan]()
     var tagFilter = [String]()
+    var nameToID = [String:Int]()
     
     func getData( changeListener: @escaping (() -> Void)){
         self.plans.removeAll()
@@ -46,6 +47,7 @@ class PlanListCollectionManager{
 //                        print("pid:\(pid), name:\(pName)")
                             let p = Plan(pid: pid, pName: pName)
                             self.plans.append(p)
+                            self.nameToID[pName] = pid
                     }
                 }
             }else{
@@ -93,8 +95,7 @@ class PlanListCollectionManager{
         }
     
     func delete(pid: Int, changeListener: @escaping (() -> Void)){
-        //TODO: return -1 if faild, 0 if success
-        //TODO: add query
+    
         let client = SQLClient.sharedInstance()!
                 client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
                     let query = "DECLARE @output int  EXEC [deletePlan] \(pid), \((AuthManager.shared.currentUser?.uid)!), @output OUTPUT SELECT @output AS result"
@@ -122,6 +123,11 @@ class PlanListCollectionManager{
                })
            }
         }
+    
+    func getIdFromName(pName: String, changeListener: @escaping (() -> Void)){
+        
+    }
+    
     }
     
     

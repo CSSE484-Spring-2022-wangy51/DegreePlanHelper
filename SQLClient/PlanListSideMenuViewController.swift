@@ -35,9 +35,7 @@ class PlanListSideMenuViewController: UIViewController {
     }
     
     @IBAction func pressedFilterByTags(_ sender: Any) {
-        
         performSegue(withIdentifier: kPopTagListSegue, sender: tableViewController)
-        
     }
     
     @IBAction func pressedLogOut(_ sender: Any) {
@@ -46,11 +44,17 @@ class PlanListSideMenuViewController: UIViewController {
         AuthManager.shared.logout()
     }
     
-    
-    
     @IBAction func pressedShowAllPlans(_ sender: Any) {
+        PlanListCollectionManager.shared.getData {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
         
     }
+    
+    @IBAction func pressedManageTag(_ sender: Any) {
+        performSegue(withIdentifier: kModifyTagSegue, sender: tableViewController)
+    }
+    
 //    func showAddTagDialog(){
 ////        print("you pressed the add button")
 //
@@ -137,6 +141,10 @@ class PlanListSideMenuViewController: UIViewController {
         if (segue.identifier == kPopTagListSegue){
             let dvc = segue.destination as! TagsTableViewController
             dvc.isSelecting = true
+        }
+        if (segue.identifier == kModifyTagSegue){
+            let dvc = segue.destination as! TagsTableViewController
+            dvc.isSelecting = false
         }
     }
     

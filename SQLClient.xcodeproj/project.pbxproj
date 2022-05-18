@@ -37,6 +37,7 @@
 		3BE983062833242A0074CC49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BE983052833242A0074CC49 /* GoogleService-Info.plist */; };
 		3BE983082833247D0074CC49 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE983072833247D0074CC49 /* Tag.swift */; };
 		3BEB2D4028345C4100E68E4C /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB2D3F28345C4100E68E4C /* TagsTableViewController.swift */; };
+		3BEB2D4228347DD700E68E4C /* TagDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB2D4128347DD700E68E4C /* TagDetailViewController.swift */; };
 		BFB699F18B4B83E6EBF1A5B5 /* Pods_SQLClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946740D0A809161E165A4931 /* Pods_SQLClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		3BE983052833242A0074CC49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BE983072833247D0074CC49 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		3BEB2D3F28345C4100E68E4C /* TagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
+		3BEB2D4128347DD700E68E4C /* TagDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailViewController.swift; sourceTree = "<group>"; };
 		946740D0A809161E165A4931 /* Pods_SQLClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQLClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 				3BE983072833247D0074CC49 /* Tag.swift */,
 				3BE98303283322B00074CC49 /* TagManager.swift */,
 				3BEB2D3F28345C4100E68E4C /* TagsTableViewController.swift */,
+				3BEB2D4128347DD700E68E4C /* TagDetailViewController.swift */,
 				3B0F2465283076D000EE01C3 /* ConnectionManager.swift */,
 				3B7E56D9281C131A0065F0F0 /* PlanDetailTableViewController.swift */,
 				17BA9E60281B8FF20061C758 /* RoseFire.swift */,
@@ -298,6 +301,7 @@
 				3B40D4E52831E733009D68E5 /* Plan.swift in Sources */,
 				17BA9E5F281B8EB60061C758 /* AuthManager.swift in Sources */,
 				327F63E82488238B00A635A6 /* AppDelegate.swift in Sources */,
+				3BEB2D4228347DD700E68E4C /* TagDetailViewController.swift in Sources */,
 				3B06260E2831B89900951969 /* WelcomeViewController.swift in Sources */,
 				17BA9E63281B90220061C758 /* Constant.swift in Sources */,
 				17BA9E61281B8FF20061C758 /* RoseFire.swift in Sources */,
