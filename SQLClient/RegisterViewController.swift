@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
 
@@ -38,7 +39,20 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func pressedRegister(_ sender: Any) {
+        var fbID : String?
+        if(UsernameTextField.text!.range(of: "@", options: .caseInsensitive) != nil){
+            print("firebase")
+            AuthManager.shared.signInNewEmailPasswordUser(email: UsernameTextField.text!, password: passwordTextField.text!)
+            fbID = Auth.auth().currentUser?.uid
+
+        }
         AuthManager.shared.registerNewUser(role: role!, firstName: FirstNameTextField.text!, lastName: lastNameTextField.text!, userName: UsernameTextField.text!, password: passwordTextField.text!, rank: rankTextField.text ?? "")
+        if(fbID != nil){
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                UserDocumentManager.shared.createNewUser(firebaseID: self.UsernameTextField.text!, sqlID: AuthManager.shared.currentUser!.uid)
+            }
+        }
+        
         self.dismiss(animated: true)
     }
     

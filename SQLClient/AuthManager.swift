@@ -8,6 +8,8 @@
 
 import Foundation
 import Pods_SQLClient
+import FirebaseAuth
+import FirebaseFirestore
 
 class AuthManager{
     static let shared = AuthManager()
@@ -102,7 +104,50 @@ class AuthManager{
         loginObserver!()
     }
     
+    func signInWithRosefireToken(_ rosefireToken: String){
+        Auth.auth().signIn(withCustomToken: rosefireToken) { (authResult, error) in
+            if let error = error {
+              print("Firebase sign in error! \(error)")
+              return
+            }
+            // User is signed in using Firebase!
+            print("The user is now actually signed in using the Rosefire token")
+            self.loginObserver!()
+          }
+    }
     
+    func signInNewEmailPasswordUser(email: String, password: String){
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error{
+                print("There was an error creating the user: \(error)")
+                return
+            }
+            print("User created")
+        }
+    }
+    
+    func loginExistingEmailPasswordUser(email: String, password: String){
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error{
+                print("There was an error logging in existing user: \(error)")
+                return
+            }
+            print("User login")
+            let docRef = Firestore.firestore().collection(kUsersCollectionPath).document(email)
+
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let sqlid = document.get(ksqlID) as! Int
+                    self.currentUser = User(uid: sqlid)
+                    print("update uid: \(sqlid)")
+                    self.loginObserver!()
+                } else {
+                    print("Document does not exist")
+                }
+            }
+//            self.loginObserver!()
+        }
+    }
     
     
 }

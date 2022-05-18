@@ -31,3 +31,7 @@ let kTagPlan = "planName"
 let kTagName = "name"
 let kTagPlanID = "planID"
 
+let kUsersCollectionPath = "Users"
+let ksqlID = "sqlID"
+let kFirebaseID = "firebaseID"
+

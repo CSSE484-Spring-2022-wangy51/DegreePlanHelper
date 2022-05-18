@@ -8,6 +8,7 @@
 
 import Foundation
 import Pods_SQLClient
+import FirebaseFirestore
 
 class UserDocumentManager{
     
@@ -19,7 +20,7 @@ class UserDocumentManager{
     func getUserInfo(uid: Int, changeListener: @escaping (() -> Void)){
         let client = SQLClient.sharedInstance()!
                 client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
-                    let query = "SELECT * FROM getPersonInfo(15) "
+                    let query = "SELECT * FROM getPersonInfo(\((AuthManager.shared.currentUser?.uid)!)) "
                     print("get info query\(query)")
                   client.execute(query, completion: { (_ results: ([Any]?)) in
                       if let r = results as? [[[String:AnyObject]]] {
@@ -82,6 +83,30 @@ class UserDocumentManager{
                    client.disconnect()
                })
            }
+    }
+    
+    func createNewUser(firebaseID: String, sqlID: Int){
+//        Firestore.firestore().collection(kUsersCollectionPath).addDocument(data: [
+//            kFirebaseID: firebaseID,
+//            ksqlID: sqlID,
+//        ]){err in
+//            if let err = err {
+//                print("Error adding document \(err)")
+//            }
+//        }
+        
+        let docRef = Firestore.firestore().collection(kUsersCollectionPath).document(firebaseID)
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                print("Document exist, do nothing, here is the data: \(document.data())")
+            } else {
+                print("Document does not exist, create this user")
+                docRef.setData([
+                    ksqlID: sqlID,
+                ])
+            }
+        }
     }
     
     
