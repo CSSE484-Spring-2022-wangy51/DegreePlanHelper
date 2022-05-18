@@ -29,10 +29,16 @@ class AddCourseViewController: UIViewController {
     var quarter: String?
     var chooseYear: Bool = false
     var chooseQuarter: Bool = false
-    
-    
+    var currentPlanID: Int?
+    var tableViewController: PlanDetailCollectionViewController{
+        let navController = presentingViewController as! UINavigationController
+        return navController.viewControllers.last as! PlanDetailCollectionViewController
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("get pid: \(currentPlanID)")
+        
+        
 
         // Do any additional setup after loading the view.
         initColor = fallButton.backgroundColor
@@ -48,7 +54,7 @@ class AddCourseViewController: UIViewController {
         juniorButton.backgroundColor = initColor
         seniorButton.backgroundColor = initColor
         SuperSeniorButton.backgroundColor = initColor
-        year = "freshman"
+        year = "Freshman"
         chooseYear = true
         checkShowButtonOrNot()
     }
@@ -59,7 +65,7 @@ class AddCourseViewController: UIViewController {
         juniorButton.backgroundColor = initColor
         seniorButton.backgroundColor = initColor
         SuperSeniorButton.backgroundColor = initColor
-        year = "sophomore"
+        year = "Sophomore"
         chooseYear = true
         checkShowButtonOrNot()
     }
@@ -70,7 +76,7 @@ class AddCourseViewController: UIViewController {
         juniorButton.backgroundColor = pressedColor
         seniorButton.backgroundColor = initColor
         SuperSeniorButton.backgroundColor = initColor
-        year = "junior"
+        year = "Junior"
         chooseYear = true
         checkShowButtonOrNot()
     }
@@ -81,7 +87,7 @@ class AddCourseViewController: UIViewController {
         juniorButton.backgroundColor = initColor
         seniorButton.backgroundColor = pressedColor
         SuperSeniorButton.backgroundColor = initColor
-        year = "senior"
+        year = "Senior"
         chooseYear = true
         checkShowButtonOrNot()
     }
@@ -92,7 +98,7 @@ class AddCourseViewController: UIViewController {
         juniorButton.backgroundColor = initColor
         seniorButton.backgroundColor = initColor
         SuperSeniorButton.backgroundColor = pressedColor
-        year = "super senior"
+        year = "SuperSenior"
         chooseYear = true
         checkShowButtonOrNot()
     }
@@ -102,7 +108,7 @@ class AddCourseViewController: UIViewController {
         winterButton.backgroundColor = initColor
         springButton.backgroundColor = initColor
         summerButton.backgroundColor = initColor
-        quarter = "fall"
+        quarter = "Fall"
         chooseQuarter = true
         checkShowButtonOrNot()
     }
@@ -112,7 +118,7 @@ class AddCourseViewController: UIViewController {
         winterButton.backgroundColor = pressedColor
         springButton.backgroundColor = initColor
         summerButton.backgroundColor = initColor
-        quarter = "winter"
+        quarter = "Winter"
         chooseQuarter = true
         checkShowButtonOrNot()
     }
@@ -122,7 +128,7 @@ class AddCourseViewController: UIViewController {
         winterButton.backgroundColor = initColor
         springButton.backgroundColor = pressedColor
         summerButton.backgroundColor = initColor
-        quarter = "spring"
+        quarter = "Spring"
         chooseQuarter = true
         checkShowButtonOrNot()
     }
@@ -132,12 +138,28 @@ class AddCourseViewController: UIViewController {
         winterButton.backgroundColor = initColor
         springButton.backgroundColor = initColor
         summerButton.backgroundColor = pressedColor
-        quarter = "summer"
+        quarter = "Summer"
         chooseQuarter = true
         checkShowButtonOrNot()
     }
     
     @IBAction func pressedAddCourse(_ sender: Any) {
+        print("add course")
+        PlanDetailDocumentManager.shared.add(pid: currentPlanID!, courseNum: self.courseNumberTextField!.text!, year: self.year!, quarter: self.quarter!) {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                print("start init")
+            PlanDetailDocumentManager.shared.initailize()
+            PlanDetailDocumentManager.shared.getData(planID: self.currentPlanID!) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                    print("reload data")
+//                    self.tableViewController.collectionView.reloadData()
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadi"), object: nil)
+                    self.dismiss(animated: true)
+                }
+            }
+            }
+        }
     }
     
     func checkShowButtonOrNot(){

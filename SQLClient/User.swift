@@ -14,6 +14,7 @@ class User{
     var lastName: String?
     var role: String?
     var rank: String?
+    var year: Int?
     
     public init(uid: Int){
         self.uid = uid

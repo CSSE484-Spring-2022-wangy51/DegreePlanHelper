@@ -63,7 +63,7 @@ class PlanDetailDocumentManager{
     func getData(planID:Int, changeListener: @escaping (() -> Void)){
         var query = ""
         query = "SELECT * FROM CourseNameInPlan(\(planID))"
-        print("query: \(query)")
+//        print("query: \(query)")
         
         let client = SQLClient.sharedInstance()!
         client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
@@ -76,7 +76,7 @@ class PlanDetailDocumentManager{
                         var quarter = ""
                         var courseNum = ""
                         for (columnName, value) in row {
-                            print("Plan: \(columnName) = \(value)")
+//                            print("Plan: \(columnName) = \(value)")
                             if(columnName == "CourseNumber"){
                                 courseNum = value as? String ?? ""
                             }else if(columnName == "Year"){
@@ -89,7 +89,7 @@ class PlanDetailDocumentManager{
                         let secNum = self.yqToSecNum[key]
                         let index = self.courseTable[secNum!]?.firstIndex(of: "")
                         self.courseTable[secNum!]![index!] = courseNum
-                        print("added \(courseNum) to section \(secNum) given \(year), \(quarter)")
+//                        print("added \(courseNum) to section \(secNum) given \(year), \(quarter)")
                     }
                 }
             }else{
@@ -102,10 +102,78 @@ class PlanDetailDocumentManager{
         }
     }
     
-    func add(uid: Int, pid: Int, courseNum: String, year: String, quarter: String, changeListener: @escaping (() -> Void)){
+    func add(pid: Int, courseNum: String, year: String, quarter: String, changeListener: @escaping (() -> Void)){
+        var query = ""
+//        query = "EXEC [insertNewPlanContain] @PlanID = \(pid),@CourseNumber = '\(courseNum)',@Year = '\(year)',@Quarter = '\(quarter)'"
+        query = "Declare @output int EXEC [insertNewPlanContain] \(pid),'\(courseNum)', '\(year)', '\(quarter)', @output OUTPUT select @output"
+        
+        print("query: \(query)")
+        
+        let client = SQLClient.sharedInstance()!
+        client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
+            client.execute(query, completion: { (_ results: ([Any]?)) in
+            if let r = results as? [[[String:AnyObject]]]{
+                for table in r {//results as! [[[String:AnyObject]]]
+                    
+                    for row in table {
+                       
+                        for (columnName, value) in row {
+                            print("Plan: \(columnName) = \(value)")
+                            let v = value as! Int
+                            if(v == -1){
+                                print("fail to add course")
+                            }else{
+                                print("successed")
+                                changeListener()
+                            }
+                        }
+                        
+                    }
+                }
+            }else{
+                print("no return from database")
+            }
+                
+//                changeListener()
+                client.disconnect()
+            })
+        }
     }
     
-    func delete(pid: Int, courseNum: String, changeListener: @escaping (() -> Void)){
+    func delete(pid: Int, courseNum: String, year: String, quarter: String, changeListener: @escaping (() -> Void)){
+        var query = ""
+        query = "DECLARE @output int EXEC [deletePlanContain] \(pid),'\(courseNum)','\(year)','\(quarter)', @output OUTPUT select @output AS result"
+        print("query: \(query)")
+        
+        let client = SQLClient.sharedInstance()!
+        client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
+            client.execute(query, completion: { (_ results: ([Any]?)) in
+            if let r = results as? [[[String:AnyObject]]]{
+                for table in r {//results as! [[[String:AnyObject]]]
+                    
+                    for row in table {
+                        
+                        for (columnName, value) in row {
+                            print("dCourse: \(columnName) = \(value)")
+                           let v = value as! Int
+                            if(v == 1){
+                                print("successfully deleted")
+                                changeListener()
+                            }else{
+                                print("error deleting file")
+                            }
+                        }
+                        
+                    }
+                }
+            }else{
+                print("no return from database")
+            }
+                
+                
+                client.disconnect()
+            })
+        }
     }
     
     func getCourseDetailFromNum(courseNum: String, changeListener: @escaping (() -> Void)){
@@ -147,8 +215,6 @@ class PlanDetailDocumentManager{
                             }
                         }
                         
-                        
-                        
                     }
                     pre = Array(Set(pre))
                     major = Array(Set(major))
@@ -165,5 +231,7 @@ class PlanDetailDocumentManager{
             })
         }
     }
+    
+    
     
 }

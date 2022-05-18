@@ -40,6 +40,8 @@ class UserDocumentManager{
                                       user?.role = value as? String ?? ""
                                    case "Rank":
                                       user?.rank = value as? String ?? ""
+                                   case "YearOf":
+                                       user?.year = value as? Int ?? 0
                                    default:
                                        print("exception colum: \(columnName)")
                                    }
@@ -55,10 +57,10 @@ class UserDocumentManager{
            }
     }
     
-    func updateUser(uid: Int, firstName: String, lastName: String, rank: String){
+    func updateUser(uid: Int, firstName: String, lastName: String, rank: String, year: Int){
         let client = SQLClient.sharedInstance()!
                 client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
-                    let query = "Declare @output int EXEC [updatePerson] \(uid),'\(firstName)', '\(lastName)','\(rank)', @output OUTPUT Select @output AS [output]"
+                    let query = "Declare @output int EXEC [updatePerson] \(uid),'\(firstName)', '\(lastName)','\(rank)','\(year)', @output OUTPUT Select @output AS [output]"
                     print("get info query\(query)")
                   client.execute(query, completion: { (_ results: ([Any]?)) in
                       if let r = results as? [[[String:AnyObject]]] {

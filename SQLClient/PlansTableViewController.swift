@@ -39,7 +39,7 @@ class PlansTableViewController: UITableViewController {
     @objc func doThisWhenNotify(notification : NSNotification) {
         
         //update tableview
-        print("din")
+//        print("din")
         self.tableView.reloadData()
 
     }
@@ -203,12 +203,9 @@ class PlansTableViewController: UITableViewController {
             dvc.pID = pid
 
         }
-//        if segue.identifier == kShowPlanDetailTableViewSegue{
-//
-//            print("Go to plan detail")
-//        }
-    }
+        
     
     
     
+}
 }

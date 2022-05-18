@@ -15,7 +15,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var rankTextField: UITextField!
-    
+    @IBOutlet weak var yearTextField: UITextField!
+    @IBOutlet weak var yearLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,8 @@ class ProfileViewController: UIViewController {
     
 
     @IBAction func pressedSaveChanges(_ sender: Any) {
-        UserDocumentManager.shared.updateUser(uid: AuthManager.shared.currentUser!.uid, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, rank: rankTextField.text ?? "") 
+        print("year: \(Int(yearTextField.text!))")
+        UserDocumentManager.shared.updateUser(uid: AuthManager.shared.currentUser!.uid, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, rank: rankTextField.text ?? "", year: Int(yearTextField.text!) ?? 0)
         
     }
     
@@ -45,11 +47,18 @@ class ProfileViewController: UIViewController {
         userNameLabel.text = AuthManager.shared.currentUser?.userName
         firstNameTextField.text = AuthManager.shared.currentUser?.firstName
         lastNameTextField.text = AuthManager.shared.currentUser?.lastName
+        print("Year is: \(AuthManager.shared.currentUser?.year)")
+        let intYear = AuthManager.shared.currentUser?.year
+        let xNSNumber = intYear as! NSNumber
+        let xString : String = xNSNumber.stringValue
+        yearTextField.text = xString
         if(AuthManager.shared.currentUser?.role == "s"){
             rankLabel.isHidden = true
             rankTextField.isHidden = true
         }else{
             rankTextField.text = AuthManager.shared.currentUser?.rank
+            yearTextField.isHidden = true
+            yearLabel.isHidden = true
         }
     }
     /*

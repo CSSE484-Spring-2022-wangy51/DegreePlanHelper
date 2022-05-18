@@ -332,8 +332,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="dZ4-jl-3sw">
-                                <rect key="frame" x="150" y="390" width="520" height="454"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="dZ4-jl-3sw">
+                                <rect key="frame" x="150" y="341" width="520" height="552"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnb-cn-Ezf">
                                         <rect key="frame" x="0.0" y="0.0" width="520" height="34"/>
@@ -342,29 +342,40 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gpc-RR-UGB">
-                                        <rect key="frame" x="0.0" y="84" width="520" height="34"/>
+                                        <rect key="frame" x="0.0" y="74" width="520" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyC-L1-64V">
-                                        <rect key="frame" x="0.0" y="168" width="520" height="34"/>
+                                        <rect key="frame" x="0.0" y="148" width="520" height="34"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s2Q-pS-a6N">
-                                        <rect key="frame" x="0.0" y="252" width="520" height="34"/>
+                                        <rect key="frame" x="0.0" y="222" width="520" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZa-G8-ddd">
+                                        <rect key="frame" x="0.0" y="296" width="520" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfj-IF-mR7">
+                                        <rect key="frame" x="0.0" y="370" width="520" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFo-A0-XSr">
-                                        <rect key="frame" x="0.0" y="336" width="520" height="34"/>
+                                        <rect key="frame" x="0.0" y="444" width="520" height="34"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zz7-lD-4Lg">
-                                        <rect key="frame" x="0.0" y="420" width="520" height="34"/>
+                                        <rect key="frame" x="0.0" y="518" width="520" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -409,6 +420,8 @@
                         <outlet property="rankLabel" destination="eFo-A0-XSr" id="1Pn-3r-B4B"/>
                         <outlet property="rankTextField" destination="zz7-lD-4Lg" id="nKt-FO-5Oi"/>
                         <outlet property="userNameLabel" destination="q79-q9-n13" id="lMO-5v-Oyi"/>
+                        <outlet property="yearLabel" destination="WZa-G8-ddd" id="jSE-eF-yZw"/>
+                        <outlet property="yearTextField" destination="hfj-IF-mR7" id="i4E-ST-2cL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNd-rJ-mCQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -828,6 +841,9 @@
                                 <rect key="frame" x="100" y="481" width="504" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="changedTextFiled:" destination="Nm2-of-YVb" eventType="editingDidEnd" id="XGY-RW-gbu"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BF-K2-tvb">
                                 <rect key="frame" x="150" y="697" width="404" height="42"/>
@@ -838,7 +854,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="changedTextFiled:" destination="Nm2-of-YVb" eventType="touchUpInside" id="wKG-8e-7ZB"/>
+                                    <action selector="pressedAddCourse:" destination="Nm2-of-YVb" eventType="touchUpInside" id="29M-tB-Hdb"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-jd-ssz">

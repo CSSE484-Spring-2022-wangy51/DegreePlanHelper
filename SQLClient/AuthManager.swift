@@ -24,7 +24,7 @@ class AuthManager{
     
     
     func registerNewUser(role: String, firstName: String, lastName: String, userName: String, password: String, rank:String){//return true if signed in
-        //TODO: return 0 for error
+        
         let client = SQLClient.sharedInstance()!
         var loginQuery = ""
         if(role == "s"){
@@ -32,7 +32,7 @@ class AuthManager{
         }else if(role == "p"){
             loginQuery = "Declare @newID int EXECUTE [insertNewUser] @Role = '\(role)', @FName = '\(firstName)', @LName = '\(lastName)', @UserName = '\(userName)', @UserPassword = '\(password)', @Rank = 'test', @UserID = @newID OUTPUT Select @newID"
         }
-//        print("LoginQuery = \(loginQuery)")
+        print("LoginQuery = \(loginQuery)")
         client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
             client.execute(loginQuery, completion: { (_ results: ([Any]?)) in
                 if let r = results as? [[[String:AnyObject]]] {
@@ -68,8 +68,9 @@ class AuthManager{
         
         var loginQuery = ""
         loginQuery = "DECLARE @output int EXEC [CheckUser] '\(UserName)','\(password)', @output OUTPUT SELECT @output"
-        
+        print("log in: \(loginQuery)")
         let client = SQLClient.sharedInstance()!
+        
         client.connect("titan.csse.rose-hulman.edu", username: kUserName, password: kPassword, database: kDatabase) { success in
             client.execute(loginQuery, completion: { (_ results: ([Any]?)) in
                 if let r = results as? [[[String:AnyObject]]] {

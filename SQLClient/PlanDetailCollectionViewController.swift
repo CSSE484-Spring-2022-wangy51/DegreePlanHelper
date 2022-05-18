@@ -68,6 +68,7 @@ class PlanDetailCollectionViewController: UICollectionViewController, UICollecti
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCourseCollectionCell)
 
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(doThisWhenNotify(notification:)), name: NSNotification.Name(rawValue: "loadi"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,7 +93,13 @@ class PlanDetailCollectionViewController: UICollectionViewController, UICollecti
         }
     }
     
-    
+    @objc func doThisWhenNotify(notification : NSNotification) {
+        
+        //update tableview
+        print("dinnnnnnnnnnnnnnnnnnn~~~~~~~~~~~")
+        self.collectionView.reloadData()
+        
+    }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if !isEditing {
             deleteButton.isEnabled = false
@@ -116,6 +123,22 @@ class PlanDetailCollectionViewController: UICollectionViewController, UICollecti
               // 2
             selectedCells.map { IndexPath in
                 print("row \(IndexPath.row) of section \(IndexPath.section)")
+                let map = PlanDetailDocumentManager.shared.yqToSecNum
+                let header = map.first(where: { $1 == IndexPath.section })?.key
+                let yAndq = header?.components(separatedBy: " ")
+                print("get year and quarter: \(yAndq)")
+                let cN = PlanDetailDocumentManager.shared.courseTable[IndexPath.section]![IndexPath.row-1]
+                PlanDetailDocumentManager.shared.delete(pid: pID!, courseNum: cN, year: yAndq![0], quarter: yAndq![1]) {
+                    print("deleted, TODO: update collection")
+                    print("current plan id: \(self.pID)")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    PlanDetailDocumentManager.shared.initailize()
+                    PlanDetailDocumentManager.shared.getData(planID: self.pID!) {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadi"), object: nil)
+                    }
+                    }
+                }
+                
             }
               collectionView.deleteItems(at: selectedCells)
               deleteButton.isEnabled = false
@@ -171,6 +194,16 @@ class PlanDetailCollectionViewController: UICollectionViewController, UICollecti
             
 
         }
+        
+        if (segue.identifier == kShowAddCourseViewSegue){
+            print("going to give pid: \(self.pID)")
+            let dvc = segue.destination as! AddCourseViewController
+            dvc.currentPlanID = self.pID
+//        if segue.identifier == kShowPlanDetailTableViewSegue{
+//
+//            print("Go to plan detail")
+//        }
+    }
     }
     
 
