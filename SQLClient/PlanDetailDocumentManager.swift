@@ -178,7 +178,7 @@ class PlanDetailDocumentManager{
     
     func getCourseDetailFromNum(courseNum: String, changeListener: @escaping (() -> Void)){
         var query = ""
-        query = "SELECT c1.CourseNumber, c1.CourseName, c1.CreditHour, c1.Prerequisite, m.Name AS requiredMajor, p.Abbreviation AS providerAbbrev FROM Course c1 JOIN CourseRequiredMajor c2 on c1.CourseNumber = c2.CourseNumber Join Major m on m.MajorID = c2.RequiredMajorID Left JOIN ProvidedBy p on p.CourseNumber = c1.CourseNumber WHERE c1.CourseNumber = '\(courseNum)'"
+        query = "SELECT c1.CourseNumber, c1.CourseName, c1.CreditHour, c1.Prerequisite, m.Name AS requiredMajor, p.Abbreviation AS providerAbbrev FROM Course c1 left JOIN CourseRequiredMajor c2 on c1.CourseNumber = c2.CourseNumber left Join Major m on m.MajorID = c2.RequiredMajorID Left JOIN ProvidedBy p on p.CourseNumber = c1.CourseNumber WHERE c1.CourseNumber = '\(courseNum)'"
         print("query: \(query)")
         
         let client = SQLClient.sharedInstance()!

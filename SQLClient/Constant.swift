@@ -23,9 +23,9 @@ let kPlanCell = "planCell"
 let kCourseCollectionCell = "courseCollectionCell"
 let kTagCell = "tagCell"
 
-let kUserName = "wangy51"
-let kPassword = "ZjdCtS@2"
-let kDatabase = "DegreePlanHelper"
+let kUserName = "jiangq1"
+let kPassword = "Jqj!20010608"
+let kDatabase = "DegreePlanHelper3"
 
 let kTagCollectionPath = "Tags"
 let kTagAuthID = "authID"
