@@ -152,8 +152,6 @@ class AddCourseViewController: UIViewController {
             PlanDetailDocumentManager.shared.initailize()
             PlanDetailDocumentManager.shared.getData(planID: self.currentPlanID!) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                    print("reload data")
-//                    self.tableViewController.collectionView.reloadData()
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadi"), object: nil)
                     self.dismiss(animated: true)
                 }

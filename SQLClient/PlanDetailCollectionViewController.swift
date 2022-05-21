@@ -118,9 +118,6 @@ class PlanDetailCollectionViewController: UICollectionViewController, UICollecti
     
     @IBAction func pressedDelete(_ sender: Any) {
         if let selectedCells = collectionView.indexPathsForSelectedItems {
-              // 1
-//              let items = selectedCells.map { $0.item }.sorted().reversed()
-              // 2
             selectedCells.map { IndexPath in
                 print("row \(IndexPath.row) of section \(IndexPath.section)")
                 let map = PlanDetailDocumentManager.shared.yqToSecNum
